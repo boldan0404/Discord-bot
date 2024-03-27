@@ -9,7 +9,6 @@ intents.presences = True
 bot = commands.Bot(command_prefix='!',intents = intents)
 
 def get_anime_recommendation():
-    # Example response structure
     url = f"https://api.jikan.moe/v4/random/anime"
     res = requests.get(url)
     anime_data = res.json()
@@ -34,7 +33,7 @@ async def scheduled_recommendation():
     channel = bot.get_channel(channel_id)
     if channel:
         anime = get_anime_recommendation()
-        message = f"Today's anime recommendation is: **{anime['title']}** **{anime['score']}\n**\n{anime['synopsis']}\nMore info: {anime['link']}"
+        message = f"Today's anime recommendation is: **{anime['title']}****{anime['score']}\n**\n{anime['synopsis']}\nMore info: {anime['link']}"
         await channel.send(message)
 
 @bot.event
