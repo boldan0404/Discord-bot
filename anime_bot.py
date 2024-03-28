@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands,tasks
 import requests
+import os
+from dotenv import load_dotenv
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -42,5 +44,5 @@ async def on_ready():
     scheduled_recommendation.start()
 
 
-bot.run('MTIyMDQ2Mzg2NzUyNDU0NjYzMg.G9mySP.duNdXgH05l3Xic8vSPnoznJcwIstXjbnf8U748')  # Replace with your bot's token
+bot.run(os.getenv("TOKEN")) 
 
